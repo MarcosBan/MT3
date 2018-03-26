@@ -1,0 +1,31 @@
+<html>
+	<head>
+		<title>Menu</title>
+	</head>
+	<body>
+		<center><h1>Menu</h1></center>
+		<hr/>
+		<center>
+		<form action="site/menu.cgi" method="post">
+			Firewall: <br/>
+			<input type="submit" name="f_i" value="Iniciar">
+			<input type="submit" name="f_p" value="Parar">
+			<input type="submit" name="f_r" value="Reiniciar"><br/><br/>
+			DNS: <br/>
+			<input type="submit" name="d_i" value="Iniciar">
+			<input type="submit" name="d_p" value="Parar">
+			<input type="submit" name="d_r" value="Reiniciar"><br/><br/>
+			Nagios: <br/>
+			<input type="submit" name="n_i" value="Iniciar">
+			<input type="submit" name="n_p" value="Parar">
+			<input type="submit" name="n_r" value="Reiniciar"><br/><br/>
+		</form>
+		<hr>
+		<center><h1>Serviços</h1></center>
+		<form action="site/status.cgi" method="post">
+			<input type="submit" name="status" value="Status do serviço">
+		</form>
+		<hr>
+		</center>
+	</body>
+</html>
