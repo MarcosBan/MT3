@@ -1,0 +1,32 @@
+#!/bin/sh
+
+inicia(){
+iptables -P INPUT DROP
+iptables -P FORWARD DROP
+iptables -P OUTPUT DROP
+
+iptables -A INPUT -p tcp --dport 80 -j ACCEPT
+iptables -A OUTPUT -p tcp --sport 80 -j ACCEPT
+iptables -A INPUT -p tcp --dport 22 -j ACCEPT
+iptables -A OUTPUT -p tcp --sport 22 -j ACCEPT
+}
+
+para(){
+iptables -F
+iptables -t nat -F
+iptables -t mangle -F
+iptables -t raw -F
+iptables -t security -F
+
+iptables -P INPUT ACCEPT
+iptables -P FORWARD ACCEPT
+iptables -P OUTPUT ACCEPT
+}
+
+case $1 in
+        start) inicia ;;
+        stop) para ;;
+        restart) para ; inicia ;;
+        *) exit 1 ;;
+esac
+
